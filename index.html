@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Vitapeel | Natural Nutrition from Grains, Peels & Skins</title>
+
+  <meta name="description"
+        content="Vitapeel creates innovative nutritional flour using grains, fruit and vegetable peels and skins, combining nutrition, agriculture and sustainability.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --green: #28784b;
+      --dark-green: #14532d;
+      --light-green: #eaf6ed;
+      --cream: #fffaf0;
+      --orange: #e98b32;
+      --dark: #17301f;
+      --gray: #66736a;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--dark);
+      background: var(--cream);
+      line-height: 1.6;
+    }
+
+    /* NAVBAR */
+    header {
+      background: rgba(255,255,255,0.96);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+
+    .navbar {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 25px;
+    }
+
+    .logo {
+      font-size: 30px;
+      font-weight: 800;
+      color: var(--green);
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: var(--orange);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--green);
+    }
+
+    .menu-btn {
+      display: none;
+      font-size: 28px;
+      border: none;
+      background: none;
+      cursor: pointer;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(90deg, rgba(20,83,45,0.94), rgba(20,83,45,0.68)),
+        url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1800&q=80")
+        center/cover;
+      color: white;
+    }
+
+    .hero-content {
+      max-width: 1200px;
+      width: 100%;
+      margin: auto;
+      padding: 80px 25px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 7vw, 76px);
+      max-width: 850px;
+      line-height: 1.05;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 span {
+      color: #ffd58a;
+    }
+
+    .hero p {
+      max-width: 700px;
+      font-size: 20px;
+      margin-bottom: 35px;
+      color: #f3f7f2;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 25px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn-primary {
+      background: var(--orange);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #cf7020;
+      transform: translateY(-2px);
+    }
+
+    .btn-light {
+      background: white;
+      color: var(--green);
+    }
+
+    .btn-light:hover {
+      background: #e9f5eb;
+    }
+
+    /* GENERAL */
+    section {
+      padding: 90px 25px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 55px;
+    }
+
+    .section-title h2 {
+      font-size: 42px;
+      color: var(--dark-green);
+      margin-bottom: 12px;
+    }
+
+    .section-title p {
+      color: var(--gray);
+      max-width: 700px;
+      margin: auto;
+    }
+
+    /* INTRO */
+    .intro {
+      background: white;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .intro-image {
+      min-height: 430px;
+      border-radius: 25px;
+      background:
+        url("https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&w=1000&q=80")
+        center/cover;
+    }
+
+    .intro-text h2 {
+      font-size: 40px;
+      color: var(--dark-green);
+      margin-bottom: 20px;
+    }
+
+    .intro-text p {
+      color: var(--gray);
+      margin-bottom: 18px;
+    }
+
+    .highlight {
+      border-left: 5px solid var(--orange);
+      padding: 15px 20px;
+      background: var(--light-green);
+      border-radius: 5px;
+      margin-top: 25px;
+    }
+
+    /* PRODUCTS */
+    .products {
+      background: #f3f8f1;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 7px 25px rgba(0,0,0,0.07);
+      transition: 0.3s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-7px);
+    }
+
+    .product-image {
+      height: 230px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .product-content {
+      padding: 25px;
+    }
+
+    .product-content h3 {
+      color: var(--dark-green);
+      margin-bottom: 10px;
+      font-size: 23px;
+    }
+
+    .product-content p {
+      color: var(--gray);
+      margin-bottom: 18px;
+    }
+
+    .product-tag {
+      display: inline-block;
+      background: #e6f4e9;
+      color: var(--green);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    /* PROCESS */
+    .process {
+      background: white;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .process-card {
+      text-align: center;
+      padding: 30px 20px;
+      border: 1px solid #e0e9e0;
+      border-radius: 18px;
+      background: #fbfdfb;
+    }
+
+    .process-number {
+      width: 55px;
+      height: 55px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background: var(--green);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .process-card h3 {
+      margin-bottom: 10px;
+      color: var(--dark-green);
+    }
+
+    .process-card p {
+      color: var(--gray);
+      font-size: 14px;
+    }
+
+    /* BENEFITS */
+    .benefits {
+      background: var(--dark-green);
+      color: white;
+    }
+
+    .benefits .section-title h2 {
+      color: white;
+    }
+
+    .benefits .section-title p {
+      color: #d8e7dc;
+    }
+
+    .benefit-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .benefit-card {
+      padding: 30px 20px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 18px;
+      text-align: center;
+    }
+
+    .benefit-icon {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    .benefit-card h3 {
+      margin-bottom: 10px;
+    }
+
+    .benefit-card p {
+      color: #dcebe0;
+      font-size: 14px;
+    }
+
+    /* AGRICULTURE */
+    .agriculture {
+      background: var(--cream);
+    }
+
+    .agri-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .agri-image {
+      min-height: 450px;
+      border-radius: 25px;
+      background:
+        url("https://images.unsplash.com/photo-1523742813669-24eecbf8f2b7?auto=format&fit=crop&w=1000&q=80")
+        center/cover;
+    }
+
+    .agri-text h2 {
+      font-size: 40px;
+      color: var(--dark-green);
+      margin-bottom: 20px;
+    }
+
+    .agri-text p {
+      color: var(--gray);
+      margin-bottom: 20px;
+    }
+
+    .check-list {
+      list-style: none;
+    }
+
+    .check-list li {
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+
+    .check-list li::before {
+      content: "✓";
+      color: var(--green);
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    /* FUTURE */
+    .future {
+      background: #f0f7ef;
+    }
+
+    .future-box {
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+      padding: 65px 30px;
+      background: white;
+      border-radius: 25px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.07);
+    }
+
+    .future-box h2 {
+      font-size: 42px;
+      color: var(--dark-green);
+      margin-bottom: 20px;
+    }
+
+    .future-box p {
+      color: var(--gray);
+      margin-bottom: 30px;
+    }
+
+    .future-list {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .future-list span {
+      background: var(--light-green);
+      color: var(--green);
+      padding: 10px 18px;
+      border-radius: 30px;
+      font-weight: bold;
+    }
+
+    /* ABOUT */
+    .about {
+      background: white;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .about-card {
+      padding: 35px 25px;
+      border-radius: 18px;
+      background: #f7faf6;
+      text-align: center;
+    }
+
+    .about-card .icon {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .about-card h3 {
+      color: var(--dark-green);
+      margin-bottom: 12px;
+    }
+
+    .about-card p {
+      color: var(--gray);
+    }
+
+    /* CONTACT */
+    .contact {
+      background: var(--dark-green);
+      color: white;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+    }
+
+    .contact h2 {
+      font-size: 42px;
+      margin-bottom: 20px;
+    }
+
+    .contact p {
+      color: #dcebe0;
+      margin-bottom: 25px;
+    }
+
+    .contact-info {
+      margin-top: 25px;
+    }
+
+    .contact-info div {
+      margin-bottom: 15px;
+    }
+
+    .contact-form {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 15px;
+      border: 1px solid #d9e2da;
+      border-radius: 8px;
+      font-family: inherit;
+      outline: none;
+    }
+
+    .contact-form textarea {
+      height: 130px;
+      resize: vertical;
+    }
+
+    .contact-form button {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 25px;
+      background: var(--orange);
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .contact-form button:hover {
+      background: #cf7020;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #0d321d;
+      color: #bcd0c2;
+      text-align: center;
+      padding: 25px;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .intro-grid,
+      .agri-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .product-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .process-grid,
+      .benefit-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      section {
+        padding: 65px 18px;
+      }
+
+      .hero-content {
+        padding: 60px 20px;
+      }
+
+      .hero h1 {
+        font-size: 43px;
+      }
+
+      .hero p {
+        font-size: 17px;
+      }
+
+      .section-title h2,
+      .intro-text h2,
+      .agri-text h2,
+      .future-box h2,
+      .contact h2 {
+        font-size: 32px;
+      }
+
+      .product-grid,
+      .process-grid,
+      .benefit-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .intro-image,
+      .agri-image {
+        min-height: 300px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <header>
+    <nav class="navbar">
+
+      <div class="logo">
+        Vita<span>peel</span>
+      </div>
+
+      <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#process">Our Process</a></li>
+        <li><a href="#agriculture">Agriculture</a></li>
+        <li><a href="#future">Future</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+    </nav>
+  </header>
+
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+
+    <div class="hero-content">
+
+      <h1>
+        Nutrition from
+        <span>Nature's Whole Story.</span>
+      </h1>
+
+      <p>
+        Vitapeel develops innovative nutritional flour from grains,
+        carefully selected peels and skins — transforming agricultural
+        resources into nutritious food ingredients for a better future.
+      </p>
+
+      <div class="buttons">
+        <a href="#products" class="btn btn-primary">
+          Explore Products
+        </a>
+
+        <a href="#contact" class="btn btn-light">
+          Contact Vitapeel
+        </a>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- INTRODUCTION -->
+  <section class="intro">
+
+    <div class="container intro-grid">
+
+      <div class="intro-image"></div>
+
+      <div class="intro-text">
+
+        <h2>From Grains, Peels & Skins to Nutrition</h2>
+
+        <p>
+          Vitapeel is an agri-food innovation concept focused on
+          creating nutritional flour by combining grains with
+          responsibly processed plant-based peels and skins.
+        </p>
+
+        <p>
+          Our vision is to create useful food ingredients while
+          encouraging better utilization of agricultural resources.
+        </p>
+
+        <div class="highlight">
+          <strong>Our vision:</strong>
+          Make nutritious food innovation more sustainable,
+          accessible and resource-conscious.
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PRODUCTS -->
+  <section class="products" id="products">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>Our Product Concepts</h2>
+
+        <p>
+          Explore the future of nutritional flour made using
+          grains and selected plant-based peels and skins.
+        </p>
+
+      </div>
+
+
+      <div class="product-grid">
+
+        <div class="product-card">
+
+          <div class="product-image"
+               style="background-image:url('https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=80');">
+          </div>
+
+          <div class="product-content">
+
+            <h3>Vitapeel Grain Flour</h3>
+
+            <p>
+              A versatile flour concept designed for everyday
+              food applications.
+            </p>
+
+            <span class="product-tag">
+              Everyday Nutrition
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="product-card">
+
+          <div class="product-image"
+               style="background-image:url('https://images.unsplash.com/photo-1597362925123-77861d3fbac7?auto=format&fit=crop&w=900&q=80');">
+          </div>
+
+          <div class="product-content">
+
+            <h3>Peel-Enriched Flour</h3>
+
+            <p>
+              Flour incorporating carefully processed plant-based
+              peel ingredients for innovative nutrition.
+            </p>
+
+            <span class="product-tag">
+              Fibre Focus
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="product-card">
+
+          <div class="product-image"
+               style="background-image:url('https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=900&q=80');">
+          </div>
+
+          <div class="product-content">
+
+            <h3>Future Nutrition Mix</h3>
+
+            <p>
+              Next-generation flour blends developed for
+              food manufacturers and consumers.
+            </p>
+
+            <span class="product-tag">
+              Future Food
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PROCESS -->
+  <section class="process" id="process">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>Our Approach</h2>
+
+        <p>
+          A concept built around responsible sourcing,
+          processing and food innovation.
+        </p>
+
+      </div>
+
+
+      <div class="process-grid">
+
+        <div class="process-card">
+
+          <div class="process-number">01</div>
+
+          <h3>Select</h3>
+
+          <p>
+            Identify suitable grains and plant-based materials
+            from responsible sources.
+          </p>
+
+        </div>
+
+
+        <div class="process-card">
+
+          <div class="process-number">02</div>
+
+          <h3>Clean</h3>
+
+          <p>
+            Carefully clean and prepare selected ingredients
+            for food processing.
+          </p>
+
+        </div>
+
+
+        <div class="process-card">
+
+          <div class="process-number">03</div>
+
+          <h3>Process</h3>
+
+          <p>
+            Use appropriate drying, milling and blending
+            processes to create flour concepts.
+          </p>
+
+        </div>
+
+
+        <div class="process-card">
+
+          <div class="process-number">04</div>
+
+          <h3>Innovate</h3>
+
+          <p>
+            Develop applications for consumers and the
+            growing food industry.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- BENEFITS -->
+  <section class="benefits">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>Why Vitapeel?</h2>
+
+        <p>
+          We are building a food innovation platform around
+          nutrition, resource utilization and agriculture.
+        </p>
+
+      </div>
+
+
+      <div class="benefit-grid">
+
+        <div class="benefit-card">
+
+          <div class="benefit-icon">🌾</div>
+
+          <h3>Grain Based</h3>
+
+          <p>
+            Built around familiar grain-based food ingredients.
+          </p>
+
+        </div>
+
+
+        <div class="benefit-card">
+
+          <div class="benefit-icon">🍊</div>
+
+          <h3>Plant Peels</h3>
+
+          <p>
+            Exploring responsible food applications for
+            selected plant peels and skins.
+          </p>
+
+        </div>
+
+
+        <div class="benefit-card">
+
+          <div class="benefit-icon">♻️</div>
+
+          <h3>Resource Conscious</h3>
+
+          <p>
+            Encouraging better utilization of agricultural
+            resources.
+          </p>
+
+        </div>
+
+
+        <div class="benefit-card">
+
+          <div class="benefit-icon">💚</div>
+
+          <h3>Food Innovation</h3>
+
+          <p>
+            Creating new possibilities for nutritious
+            food ingredients.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- AGRICULTURE -->
+  <section class="agriculture" id="agriculture">
+
+    <div class="container agri-grid">
+
+      <div class="agri-image"></div>
+
+      <div class="agri-text">
+
+        <h2>Connecting Agriculture with Nutrition</h2>
+
+        <p>
+          Agriculture produces an enormous variety of grains,
+          fruits and vegetables. Vitapeel explores ways to
+          create additional value from selected parts of
+          these crops.
+        </p>
+
+        <p>
+          Our long-term objective is to build a bridge between
+          farmers, food processing and consumers.
+        </p>
+
+        <ul class="check-list">
+
+          <li>Value-added agricultural products</li>
+
+          <li>Innovative flour formulations</li>
+
+          <li>Responsible ingredient utilization</li>
+
+          <li>Food industry partnerships</li>
+
+          <li>Future-focused nutrition research</li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FUTURE -->
+  <section class="future" id="future">
+
+    <div class="container">
+
+      <div class="future-box">
+
+        <h2>The Future of Vitapeel</h2>
+
+        <p>
+          Vitapeel aims to grow from a nutritional flour concept
+          into a broader platform for innovative agricultural
+          and food products.
+        </p>
+
+        <div class="future-list">
+
+          <span>New Flour Blends</span>
+
+          <span>Food Ingredients</span>
+
+          <span>Bakery Products</span>
+
+          <span>Healthy Snacks</span>
+
+          <span>Farmer Partnerships</span>
+
+          <span>Research & Development</span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>About Vitapeel</h2>
+
+        <p>
+          An emerging concept at the intersection of
+          agriculture, food technology and nutrition.
+        </p>
+
+      </div>
+
+
+      <div class="about-grid">
+
+        <div class="about-card">
+
+          <div class="icon">🌱</div>
+
+          <h3>Our Mission</h3>
+
+          <p>
+            To explore innovative food products that connect
+            agricultural resources with nutritional needs.
+          </p>
+
+        </div>
+
+
+        <div class="about-card">
+
+          <div class="icon">🔬</div>
+
+          <h3>Our Innovation</h3>
+
+          <p>
+            To research new flour combinations using grains
+            and carefully selected plant-based materials.
+          </p>
+
+        </div>
+
+
+        <div class="about-card">
+
+          <div class="icon">🌍</div>
+
+          <h3>Our Vision</h3>
+
+          <p>
+            To build a responsible food brand for consumers,
+            farmers and future generations.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+
+    <div class="container contact-grid">
+
+      <div>
+
+        <h2>Let's Build the Future of Food Together.</h2>
+
+        <p>
+          Interested in Vitapeel products, partnerships,
+          distribution or future investment opportunities?
+          Get in touch with our team.
+        </p>
+
+        <div class="contact-info">
+
+          <div>
+            📧 <strong>Email:</strong>
+            hello@vitapeel.com
+          </div>
+
+          <div>
+            📞 <strong>Phone:</strong>
+            +91 XXXXX XXXXX
+          </div>
+
+          <div>
+            📍 <strong>Location:</strong>
+            Tamil Nadu, India
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="contact-form">
+
+        <form onsubmit="sendMessage(event)">
+
+          <input
+            type="text"
+            id="name"
+            placeholder="Your Name"
+            required
+          >
+
+          <input
+            type="email"
+            id="email"
+            placeholder="Your Email"
+            required
+          >
+
+          <input
+            type="text"
+            id="subject"
+            placeholder="Subject"
+            required
+          >
+
+          <textarea
+            id="message"
+            placeholder="Tell us how we can help..."
+            required
+          ></textarea>
+
+          <button type="submit">
+            Send Enquiry
+          </button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <p>
+      © <span id="year"></span>
+      <strong>Vitapeel</strong>.
+      All Rights Reserved.
+    </p>
+
+    <p>
+      Nutrition • Agriculture • Innovation
+    </p>
+
+  </footer>
+
+
+  <!-- JAVASCRIPT -->
+  <script>
+
+    /* MOBILE MENU */
+
+    function toggleMenu() {
+
+      const nav = document.getElementById("navLinks");
+
+      nav.classList.toggle("active");
+
+    }
+
+
+    /* CLOSE MOBILE MENU AFTER CLICK */
+
+    document.querySelectorAll(".nav-links a").forEach(function(link) {
+
+      link.addEventListener("click", function() {
+
+        document
+          .getElementById("navLinks")
+          .classList.remove("active");
+
+      });
+
+    });
+
+
+    /* CONTACT FORM */
+
+    function sendMessage(event) {
+
+      event.preventDefault();
+
+      const name =
+        document.getElementById("name").value;
+
+      alert(
+        "Thank you, " + name +
+        "! Your enquiry has been received."
+      );
+
+      event.target.reset();
+
+    }
+
+
+    /* CURRENT YEAR */
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+  </script>
+
+</body>
+</html>
